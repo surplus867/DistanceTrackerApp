@@ -268,18 +268,19 @@ class MapsFragment : Fragment(), OnMapReadyCallback, GoogleMap.OnMyLocationButto
                 it.result.latitude,
                 it.result.longitude
             )
-            for (polyLine in polylineList){
-                polyLine.remove()
-            }
             map.animateCamera(
                 CameraUpdateFactory.newCameraPosition(
                     setCameraPosition(lastKnownLocation)
                 )
             )
-            locationList.clear()
+            for (polyLine in polylineList){
+                polyLine.remove()
+            }
             for (marker in markerList){
                 marker.remove()
             }
+            locationList.clear()
+            markerList.clear()
             binding.resetButton.hide()
             binding.startButton.show()
         }
