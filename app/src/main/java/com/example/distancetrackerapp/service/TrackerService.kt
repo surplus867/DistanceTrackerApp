@@ -112,7 +112,7 @@ class TrackerService: LifecycleService() {
 
     @SuppressLint("MissingPermission")
     private fun startLocationUpdate(){
-        val locationRequest = LocationRequest().apply {
+        val locationRequest = LocationRequest.create().apply {
             interval = LOCATION_UPDATE_INTERVAL
             fastestInterval = LOCATION_FASTEST_UPDATE_INTERVAL
             priority = LocationRequest.PRIORITY_HIGH_ACCURACY
